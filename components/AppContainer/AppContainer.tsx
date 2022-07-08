@@ -17,7 +17,7 @@ import {
   Menu,
   useMantineColorScheme,
 } from '@mantine/core';
-import { Settings, TestPipe } from 'tabler-icons-react';
+import { Settings, TestPipe, BoxModel2 } from 'tabler-icons-react';
 import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
 
 interface IAppContainer {
@@ -27,7 +27,7 @@ interface IAppContainer {
 const AppContainer: React.FC<IAppContainer> = ({ children }) => {
   const route = useRouter();
   const [opened, setOpened] = useState<boolean>(false);
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const { toggleColorScheme } = useMantineColorScheme();
 
   return (
     <AppShell
@@ -58,6 +58,7 @@ const AppContainer: React.FC<IAppContainer> = ({ children }) => {
               <Menu.Item onClick={() => toggleColorScheme()}>
                 <ColorSchemeToggle />
               </Menu.Item>
+              <Menu.Item icon={<BoxModel2 />}>Open Modal</Menu.Item>
             </Menu>
           </Group>
         </Header>

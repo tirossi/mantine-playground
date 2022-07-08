@@ -2,7 +2,7 @@ import { Group, Text, ThemeIcon, UnstyledButton, useMantineColorScheme } from '@
 import { SunIcon, MoonIcon } from '@modulz/radix-icons';
 
 export function ColorSchemeToggle() {
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const { colorScheme } = useMantineColorScheme();
 
   return (
     <Group position="center">

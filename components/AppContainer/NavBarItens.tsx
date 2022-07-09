@@ -11,7 +11,7 @@ const NavBarItens = [
     label: 'Forms',
     url: '/forms',
     icon: <Forms />,
-    active: true,
+    active: false,
   },
 ];
 

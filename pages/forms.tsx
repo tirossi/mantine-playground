@@ -31,22 +31,24 @@ export default function Forms() {
     },
   });
 
-  const onSubmit = () => {
-    setState({ isLoading: true });
-    setTimeout(() => {
-      console.log(form.values);
-      setState({ isLoading: false });
-    }, 3000);
-  };
-
   return (
     <>
       <Container>
         {state.isLoading && <Loading />}
         {!state.isLoading && (
           <>
-            <Title order={1}>Forms</Title>
-            <form onSubmit={onSubmit}>
+            <Title mb="lg" order={1}>
+              Forms
+            </Title>
+            <form
+              onSubmit={form.onSubmit(() => {
+                setState({ isLoading: true });
+                setTimeout(() => {
+                  console.log(form.values);
+                  setState({ isLoading: false });
+                }, 3000);
+              })}
+            >
               <SimpleGrid cols={breakCols ? 2 : 1}>
                 <TextInput
                   required
@@ -73,11 +75,10 @@ export default function Forms() {
                   {...form.getInputProps('phone')}
                 />
                 <Checkbox
-                  mt="md"
                   label="I agree to sell my privacy"
                   {...form.getInputProps('termsOfService', { type: 'checkbox' })}
                 />
-                <Button ml={73} type="submit">
+                <Button color="cyan" type="submit">
                   Submit
                 </Button>
               </SimpleGrid>
